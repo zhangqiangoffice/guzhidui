@@ -1,0 +1,381 @@
+/**
+ * 文件：故纸堆
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：张强
+ * 日期：2016-12-24
+**/
+
+@import "zlib.v2.less";
+@import "initial.less";
+
+@images: "/static/img";
+
+/*颜色*/
+@main-color: #a0522d;
+@main-light: #CD853F;
+@main-dark: #8b4513;
+
+.hide {
+    .hide;
+}
+
+//头部导航
+.title_bar {
+    .p-f;
+    top:0;
+    left: 0;
+    z-index: 20;
+    .w100;
+    background-color: @main-color;
+    height: 46px;
+
+    .bar_main {
+        width: 960px;
+        margin: 0 auto;
+        height: 100%;
+
+        .title {
+            color: #fff;
+            font-size: 28px;
+            line-height: 46px;
+            margin-right: 15px;
+        }
+
+        input {
+            vertical-align: top;
+            margin-top: 7px;
+            padding: 7px 50px 7px 10px;
+            width: 350px;
+            color: #49525c;
+            font-size: 14px;
+            line-height: 17px;
+            background-color: #F0E68C;
+            border: 1px solid @main-dark;
+            border-radius: 4px 0 0 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.2),0 1px 0 rgba(255,255,255,.1);
+            outline: 0;
+        }
+
+        .search {
+            height: 33px;
+            border: 1px solid @main-dark;
+            vertical-align: top;
+            margin-top: 7px;
+            margin-left: -1px;
+            background-color: @main-light;
+            border-radius: 0 4px 4px 0;
+            color: #fff;
+        }
+
+        .user {
+            .f-r;
+            .t-c;
+
+            span.btns {
+                button {
+                    .search;
+                    border-radius: 4px;
+                    margin-right: 10px;
+                }
+                
+            }
+
+            span.member {
+                .pointer;
+                color: #fff;
+                line-height: 45px;
+                .block;
+                .size(100px, 100%);
+
+                &:hover {
+                    background-color: #2d2d2d;
+
+                    ul {
+                        .block;
+                    }
+                }
+
+                ul {
+                    .hide;
+                    background-color: #2d2d2d;
+                    color: #fff;
+
+                    li {
+                        .one-height(40px);
+                        border-bottom: @border;
+                        &:hover {
+                            background-color: #111;
+                            color: @main-light;
+                        }
+                    }
+                }
+                
+            }
+
+
+        }
+
+        .write_paper {
+            .search;
+            margin-left: 60px;
+            border-radius: 4px;
+        }
+    }
+}
+
+//主体部分
+.main_body {
+    .p-r;
+    margin: 60px auto;
+    width: 960px;
+
+    .left_body {
+        width: 580px;
+        margin-left: 48px;
+    }
+
+    .key_word {
+        font-size: 20px;
+        color: #333;
+        .bold;
+        border-bottom: @border;
+        padding-bottom: 10px;
+
+        &:before {
+            content: '· '
+        }
+    }
+
+    .no_word {
+        font-size: 20px;
+        color: #aaa;
+        .bold;
+        border-bottom: @border;
+        padding-bottom: 10px;
+    }
+
+}
+
+.paper {
+    border-bottom: @border;
+    padding: 10px 0;
+    .top {
+        .author_name {
+            .bold;
+        }
+        .publish_time {
+            color: #999;
+            .f-r;
+        }
+    }
+    .middle {
+        p {
+            .w100;
+            padding: 10px;
+            line-height: 26px;
+        }
+    }
+    .bottom {
+        color: #999;
+        .clearfix;
+        .write_paper {
+            .f-r;
+            .pointer;
+        }
+    }
+}
+
+//遮罩层样式
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    img {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
+//登陆框样式
+.login_box {
+    .p-f;
+    width: 300px;
+    height: 215px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    .t-c;
+    z-index: 101;
+
+    table {
+        margin-top: 30px;
+        width: 70%;
+        margin-left: 15%;
+
+        input {
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        button {
+            background-color: @main-color;
+            border: 1px solid @main-dark;
+            color: #fff;
+            .w100;
+            padding: 5px 0;
+            margin-top: 10px;
+            .pointer;
+            .radius;
+        }
+    }
+
+    .to_register {
+        color: @main-light;
+        border-bottom: 1px solid @main-light;
+        .f-r;
+        .pointer;
+        margin-top: 5px;
+
+        &:hover {
+            color: @main-color;
+            border-bottom: 1px solid @main-color;
+        }
+    }
+}
+
+//注册框样式
+.register_box {
+    .p-f;
+    width: 340px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    .t-c;
+    z-index: 101;
+
+    table {
+        margin-top: 30px;
+        width: 70%;
+        margin-left: 15%;
+
+        input {
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        button {
+            background-color: @main-color;
+            border: 1px solid @main-dark;
+            color: #fff;
+            .w100;
+            padding: 5px 0;
+            margin-top: 10px;
+            .pointer;
+            .radius;
+        }
+
+        .tips {
+            color: @ms-red;
+        }
+    }
+}
+
+//写新纸条的框
+.paper_box {
+    .p-f;
+    .size(700px, 360px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    .t-c;
+    z-index: 101;
+
+    p {
+        padding: 0;
+        margin: 0 20px 8px;
+        .t-l;
+    }
+
+    textarea {
+        .size(660px, 200px);
+        border: @border;
+        margin: 20px 0 10px;
+        padding: 3px 8px;
+    }
+
+    button {
+        width: 188px;
+        background-color: @main-color;
+        border: 1px solid @main-dark;
+        color: #fff;
+        padding: 5px 0;
+        margin-top: 20px;
+        .pointer;
+        .radius;
+    }
+
+    ul {
+        .clearfix;
+        padding: 0 20px;
+
+        li {
+            .f-l;
+            margin-right: 29px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            input {
+                width: 100px;
+                border: @border;
+                text-indent: 5px;
+            }
+        }
+    }
+}
+
+//关闭按钮
+.gzdfont.gzd-guanbi {
+    .circle(27px, #fff, #999);
+    .p-a;
+    top: -10px;
+    right: -10px;
+    font-size: 20px;
+    .pointer;
+
+    &:hover {
+        .circle(40px, #fff, #999);
+        .p-a;
+        top: -15px;
+        right: -15px;
+        font-size: 30px;
+        color: @red;
+    }
+}
+
+
